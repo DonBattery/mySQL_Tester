@@ -6,7 +6,7 @@ const rdsNandiDB = {
   port: 3306,
   user: 'nandi',
   password: 'nandi111',
-  database: 'test',
+  database: 'test'
 };
 
 const envDB = {
@@ -14,16 +14,14 @@ const envDB = {
   user: process.env.RDS_USERNAME,
   password: process.env.RDS_PASSWORD,
   database: process.env.RDS_DB_NAME,
-  port: process.env.RDS_PORT,
+  port: process.env.RDS_PORT
 };
 
 // We will use this one!
 const myDB = envDB;
 
-// Express App host:port
-const HOST = 'localhost';
-
-const PORT = 6969;
+// Express App port
+const PORT = 8080;
 
 // Packages and tools
 const tools = require('./tools');
@@ -77,6 +75,6 @@ app.post('/post', (req, res) => {
 });
 
 // Start server!
-app.listen(PORT, HOST, () => {
-  tools.serverLog(`Test Server litening on ${HOST} : ${PORT}`);
+app.listen(PORT, () => {
+  tools.serverLog(`Test Server litening on PORT ${PORT}`);
 });
