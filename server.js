@@ -18,7 +18,7 @@ const envDB = {
 };
 
 // We will use this one!
-const myDB = rdsNandiDB;
+const myDB = envDB;
 
 // Express App host:port
 const HOST = 'localhost';
