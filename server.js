@@ -2,11 +2,11 @@
 
 // mySQL connection objects
 const rdsNandiDB = {
-  host: 'aa1el4i99j9th8r.ceovs74iifmf.eu-central-1.rds.amazonaws.com',
+  host: 'aa19zvqjywe7nol.ceovs74iifmf.eu-central-1.rds.amazonaws.com',
   port: 3306,
   user: 'nandi',
   password: 'nandi111',
-  database: 'posts',
+  database: 'test',
 };
 
 const envDB = {
@@ -37,6 +37,9 @@ const app = express();
 
 const db = mysql.createConnection(myDB);
 
+// Log Process
+console.log(process);
+
 // Test DB
 tools.testDB(db, tools.serverLog);
 
@@ -64,8 +67,13 @@ app.get('/get', (req, res) => {
 
 // POST Request
 app.post('/post', (req, res) => {
-  tools.serverLog(req.body);
-  res.json({ ok: 'ok' });
+  tools.askDB(db, "insert into users (username) values ('Panna')", () => {
+    tools.serverLog('Db query Succes');
+    res.json({ result: 'Succes' });
+  }, (err) => {
+    tools.serverLog('Database Error '.concat(err));
+    res.status(500).json({ result: 'DB Error' });
+  });
 });
 
 // Start server!

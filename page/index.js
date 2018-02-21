@@ -1,17 +1,15 @@
+/* eslint linebreak-style: ['error', 'windows'] */
+
 const myUrl = 'http://localhost:6969';
 
 function myRequester(method = 'GET', type = 'text', url = '', parameters = [], querys = {}, body = null, readyCallback = () => {}, errorCallback = () => {}) {
-  
   const reqURL = url.concat('/', parameters.join('/'), (querys.length > 0) ? '?'.concat(Object.keys(querys).map(key => key.concat('=', encodeURIComponent(querys[key]))).join('&')) : '');
-  
   const myRequest = new XMLHttpRequest();
-  
   myRequest.open(method, reqURL);
   if (type === 'JSON') {
     myRequest.setRequestHeader('Content-Type', 'application/json');
     myRequest.setRequestHeader('Accept', 'application/json');
   }
-  
   myRequest.onreadystatechange = function myLoader() {
     if (myRequest.readyState === 4) {
       switch (myRequest.status) {
@@ -23,11 +21,7 @@ function myRequester(method = 'GET', type = 'text', url = '', parameters = [], q
       }
     }
   };
-
-  console.log('Sending body ', body);
-  
   myRequest.send(JSON.stringify(body));
-
 }
 
 function readyLogger(params) {
@@ -39,17 +33,14 @@ function errorLogger(params) {
 }
 
 function pageLoad() {
-
-  const button1 = document.getElementById('myButton1');  
+  const button1 = document.getElementById('myButton1');
   const button2 = document.getElementById('myButton2');
-
-  button1.addEventListener('click', function () {
-    myRequester('GET', 'JSON', myUrl, ['get'], {}, null, readyLogger, errorLogger)
+  button1.addEventListener('click', () => {
+    myRequester('GET', 'JSON', myUrl, ['get'], {}, null, readyLogger, errorLogger);
   });
-
-  button2.addEventListener('click', function () {
+  button2.addEventListener('click', () => {
     myRequester('POST', 'JSON', myUrl, ['post'], {}, { name: 'Olga' }, readyLogger, errorLogger);
   });
-};
+}
 
-window.addEventListener('load', pageLoad)
+window.addEventListener('load', pageLoad);
