@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",  
   "Image":{   
-    "Name": "donbattery/aws_test:newer_rds"     
+    "Name": "donbattery/aws_test:final_test"     
   },  
     "Ports": [ {         
       "ContainerPort": "8080",
