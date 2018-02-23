@@ -2,23 +2,23 @@
 
 // mySQL connection objects
 const rdsNandiDB = {
-  host: 'aa19zvqjywe7nol.ceovs74iifmf.eu-central-1.rds.amazonaws.com',
-  port: 3306,
-  user: 'nandi',
-  password: 'nandi111',
-  database: 'test',
+  host: '',
+  port: 0,
+  user: '',
+  password: '',
+  database: '',
 };
 
 const envDB = {
   host: process.env.RDS_HOSTNAME,
+  port: process.env.RDS_PORT,
   user: process.env.RDS_USERNAME,
   password: process.env.RDS_PASSWORD,
   database: process.env.RDS_DB_NAME,
-  port: process.env.RDS_PORT,
 };
 
 // We will use this one!
-const myDB = rdsNandiDB;
+const myDB = envDB;
 
 // Express App host:port
 const HOST = 'localhost';

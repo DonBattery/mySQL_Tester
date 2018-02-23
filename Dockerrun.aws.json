@@ -1,0 +1,11 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image":{       
+    "Name": "donbattery/aws_test:rdsenv"     
+  },
+    "Ports": [       {         
+      "ContainerPort": "6969",
+      "hostPort": "80"
+    }
+  ]
+}
