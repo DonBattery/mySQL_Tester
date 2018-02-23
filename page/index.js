@@ -1,6 +1,6 @@
 /* eslint linebreak-style: ['error', 'windows'] */
 
-const myUrl = 'http://localhost:6969';
+const myUrl = '';
 
 function myRequester(method = 'GET', type = 'text', url = '', parameters = [], querys = {}, body = null, readyCallback = () => {}, errorCallback = () => {}) {
   const reqURL = url.concat('/', parameters.join('/'), (querys.length > 0) ? '?'.concat(Object.keys(querys).map(key => key.concat('=', encodeURIComponent(querys[key]))).join('&')) : '');

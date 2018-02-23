@@ -20,10 +20,8 @@ const envDB = {
 // We will use this one!
 const myDB = envDB;
 
-// Express App host:port
-const HOST = 'localhost';
-
-const PORT = 6969;
+// Express App port
+const PORT = 8080;
 
 // Packages and tools
 const tools = require('./tools');
@@ -77,6 +75,6 @@ app.post('/post', (req, res) => {
 });
 
 // Start server!
-app.listen(PORT, HOST, () => {
-  tools.serverLog(`Test Server litening on ${HOST} : ${PORT}`);
+app.listen(PORT, () => {
+  tools.serverLog(`Test Server litening on PORT ${PORT}`);
 });
